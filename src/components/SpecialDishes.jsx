@@ -72,7 +72,7 @@ const SpecialDishes = () => {
     <div className="section-container py-16 relative">
       <div>
         <p className="subtitle">Special Dishes</p>
-        <h3 className="title w-[520px]">Standout Dishes From Our Menu</h3>
+        <h3 className="title lg:w-[520px]">Standout Dishes From Our Menu</h3>
       </div>
       <div className="md:absolute right-3 top-12 mb-10 md:mr-24 ">
         <button
