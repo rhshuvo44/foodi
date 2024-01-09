@@ -3,7 +3,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Slider from "react-slick";
 import Cards from "./Cards";
 
-const simpleNextArrow = (props) => {
+const SimpleNextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
@@ -15,7 +15,7 @@ const simpleNextArrow = (props) => {
     </div>
   );
 };
-const simplePrevArrow = (props) => {
+const SimplePrevArrow = (props) => {
   const { className, style, onClick } = props;
   return (
     <div
@@ -65,8 +65,8 @@ const SpecialDishes = () => {
         },
       },
     ],
-    nextArrow: <simpleNextArrow />,
-    prevArrow: <simplePrevArrow />,
+    nextArrow: <SimpleNextArrow />,
+    prevArrow: <SimplePrevArrow />,
   };
   return (
     <div className="section-container py-16 relative">
@@ -94,7 +94,7 @@ const SpecialDishes = () => {
         className="overflow-hidden mt-10 space-x-5"
       >
         {recipes.map((item) => (
-          <Cards item={item} key={item.id} />
+          <Cards item={item} key={item._id} />
         ))}
       </Slider>
     </div>
