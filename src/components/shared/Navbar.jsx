@@ -199,7 +199,7 @@ const Navbar = () => {
           </div>
           <Link
             to="contact"
-            className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2"
+            className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
           >
             <BiPhoneCall className="w-5 h-5" /> Contact
           </Link>

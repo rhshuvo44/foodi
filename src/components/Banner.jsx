@@ -98,7 +98,7 @@ const Banner = () => {
             <button className="btn bg-accent px-8 py-3 font-semibold text-white rounded-full hover:bg-black transition-all duration-500">
               Order Now
             </button>
-            <button className="btn bg-transparent px-8 py-3 font-semibold text-black rounded-full hover:bg-accent transition-all duration-500 flex items-center gap-5">
+            <button className="btn bg-transparent px-8 py-3 font-semibold text-black rounded-full hover:bg-accent transition-all duration-500 flex items-center gap-5 hover:text-white">
               Watch Video <CiPlay1 className="w-5 h-5" />
             </button>
           </div>

@@ -10,41 +10,15 @@ header {
     .menu
       li:not(.menu-title):not(.disabled)
       > *:not(ul):not(details):not(.menu-title)
-  ):not(summary):not(.active).focus,
-:where(
-    .menu
-      li:not(.menu-title):not(.disabled)
-      > *:not(ul):not(details):not(.menu-title)
-  ):not(summary):not(.active):focus,
-:where(
-    .menu
-      li:not(.menu-title):not(.disabled)
-      > *:not(ul):not(details):not(.menu-title)
-  ):is(summary):not(.active):focus-visible,
+  ):not(.active):hover,
 :where(
     .menu
       li:not(.menu-title):not(.disabled)
       > details
       > summary:not(.menu-title)
-  ):not(summary):not(.active).focus,
-:where(
-    .menu
-      li:not(.menu-title):not(.disabled)
-      > details
-      > summary:not(.menu-title)
-  ):not(summary):not(.active):focus,
-:where(
-    .menu
-      li:not(.menu-title):not(.disabled)
-      > details
-      > summary:not(.menu-title)
-  ):is(summary):not(.active):focus-visible {
-  background-color: transparent !important;
-  color: transparent !important;
+  ):not(.active):hover {
   outline: none !important;
-  outline-offset: 0px !important;
 }
-
 :where(
     .menu
       li:not(.menu-title):not(.disabled)
