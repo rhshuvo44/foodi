@@ -60,3 +60,9 @@ header {
 .slick-slide {
   padding: 20px;
 }
+
+.active {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  color: #39db4a;
+}
