@@ -21,7 +21,10 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/" className="">
+        <Link
+          to="/"
+          className="hover:bg-transparent hover:text-accent transition-all duration-300"
+        >
           Home
         </Link>
       </li>
@@ -30,13 +33,28 @@ const Navbar = () => {
           <summary>Menu</summary>
           <ul className="p-2 w-28">
             <li>
-              <Link to="menu">All Menu</Link>
+              <Link
+                to="menu"
+                className="hover:bg-transparent hover:text-accent transition-all duration-300"
+              >
+                All Menu
+              </Link>
             </li>
             <li>
-              <Link to="salad">Salad</Link>
+              <Link
+                to="salad"
+                className="hover:bg-transparent hover:text-accent transition-all duration-300"
+              >
+                Salad
+              </Link>
             </li>
             <li>
-              <Link to="pizza">Pizza</Link>
+              <Link
+                to="pizza"
+                className="hover:bg-transparent hover:text-accent transition-all duration-300"
+              >
+                Pizza
+              </Link>
             </li>
           </ul>
         </details>
@@ -46,19 +64,39 @@ const Navbar = () => {
           <summary>Services</summary>
           <ul className="p-2 w-40">
             <li>
-              <Link to="menu">Online Order</Link>
+              <Link
+                to="menu "
+                className="hover:bg-transparent hover:text-accent transition-all duration-300"
+              >
+                Online Order
+              </Link>
             </li>
             <li>
-              <Link to="menu">Table Booking</Link>
+              <Link
+                to="menu"
+                className="hover:bg-transparent hover:text-accent transition-all duration-300"
+              >
+                Table Booking
+              </Link>
             </li>
             <li>
-              <Link to="menu">Order Tracking</Link>
+              <Link
+                to="menu"
+                className="hover:bg-transparent hover:text-accent transition-all duration-300"
+              >
+                Order Tracking
+              </Link>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <a>Offers</a>
+        <Link
+          to="offers"
+          className="hover:bg-transparent hover:text-accent transition-all duration-300 t"
+        >
+          Offers
+        </Link>
       </li>
     </>
   );
