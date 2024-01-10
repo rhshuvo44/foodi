@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiPhoneCall } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "/logo.png";
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
@@ -21,40 +21,40 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link
+        <NavLink
           to="/"
           className="hover:bg-transparent hover:text-accent transition-all duration-300"
         >
           Home
-        </Link>
+        </NavLink>
       </li>
       <li>
         <details>
           <summary>Menu</summary>
           <ul className="p-2 w-28">
             <li>
-              <Link
+              <NavLink
                 to="menu"
                 className="hover:bg-transparent hover:text-accent transition-all duration-300"
               >
                 All Menu
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="salad"
                 className="hover:bg-transparent hover:text-accent transition-all duration-300"
               >
                 Salad
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="pizza"
                 className="hover:bg-transparent hover:text-accent transition-all duration-300"
               >
                 Pizza
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </details>
@@ -64,39 +64,39 @@ const Navbar = () => {
           <summary>Services</summary>
           <ul className="p-2 w-40">
             <li>
-              <Link
+              <NavLink
                 to="menu "
                 className="hover:bg-transparent hover:text-accent transition-all duration-300"
               >
                 Online Order
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="menu"
                 className="hover:bg-transparent hover:text-accent transition-all duration-300"
               >
                 Table Booking
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 to="menu"
                 className="hover:bg-transparent hover:text-accent transition-all duration-300"
               >
                 Order Tracking
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <Link
+        <NavLink
           to="offers"
           className="hover:bg-transparent hover:text-accent transition-all duration-300 t"
         >
           Offers
-        </Link>
+        </NavLink>
       </li>
     </>
   );

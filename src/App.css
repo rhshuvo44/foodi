@@ -37,6 +37,12 @@ header {
 .menu :where(li > .menu-dropdown-toggle):after {
   color: #39db4a;
 }
+.menu li > *:not(ul):not(.menu-title):not(details):active,
+.menu li > *:not(ul):not(.menu-title):not(details).active,
+.menu li > details > summary:active {
+  background-color: transparent !important;
+  color: #39db4a !important;
+}
 .section-container {
   @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
 }
