@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Slider from "react-slick";
-import Cards from "./Cards";
+import Cards from "../Cards";
 
 const SimpleNextArrow = (props) => {
   const { className, style, onClick } = props;

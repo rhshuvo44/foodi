@@ -1,10 +1,11 @@
 import React from 'react';
+import Hero from '../components/menu/Hero';
 
 const Menu = () => {
     return (
-        <div>
-           menu 
-        </div>
+        <>
+           <Hero/>
+        </>
     );
 };
 
