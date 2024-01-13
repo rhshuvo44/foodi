@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { BiPhoneCall } from "react-icons/bi";
+import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "/logo.png";
+import LoginModal from "../LoginModal";
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
   useEffect(() => {
@@ -197,12 +198,14 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <Link
+          <button
             to="contact"
             className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
+            onClick={() => document.getElementById("my_modal_5").showModal()}
           >
-            <BiPhoneCall className="w-5 h-5" /> Contact
-          </Link>
+            <FaRegUser className="w-4 h-4" /> Login
+          </button>
+          <LoginModal/>
         </div>
       </nav>
     </header>

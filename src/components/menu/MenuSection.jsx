@@ -148,7 +148,7 @@ const MenuSection = () => {
             key={index}
             onClick={() => paginate(index + 1)}
             className={`mx-1 px-3 py-1 rounded-full ${
-              currentPage === index + 1 ? "bg-accent text-white" : ""
+              currentPage === index + 1 ? "bg-accent text-white" : "bg-gray-200"
             }`}
           >
             {index + 1}
