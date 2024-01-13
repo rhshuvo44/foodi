@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../config/contexts/AuthProvider";
 
 const LoginModal = () => {
   const {
@@ -9,8 +10,32 @@ const LoginModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const onSubmit = (data) => console.log(data);
+  const { loginGmail, login } = useContext(AuthContext);
+  // redirecting to home page
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+  const handleGoogleLogin = () => {
+    loginGmail()
+      .then((result) => {
+        const user = result.user;
+        alert("login success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const onSubmit = ({ email, password }) => {
+    login(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("login success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <dialog id="login" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
@@ -30,7 +55,6 @@ const LoginModal = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
-                required
                 name="email"
                 id="email"
                 {...register("email", { required: true })}
@@ -44,7 +68,6 @@ const LoginModal = () => {
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
-                required
                 name="password"
                 id="password"
                 {...register("password", { required: true })}
@@ -78,7 +101,10 @@ const LoginModal = () => {
           </form>
           {/* social btn  */}
           <div className="text-center space-x-3">
-            <button className="btn btn-circle hover:bg-accent hover:text-white">
+            <button
+              className="btn btn-circle hover:bg-accent hover:text-white"
+              onClick={handleGoogleLogin}
+            >
               <FaGoogle />
             </button>
             <button className="btn btn-circle hover:bg-accent hover:text-white">

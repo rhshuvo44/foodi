@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "/logo.png";
 import LoginModal from "../LoginModal";
+import { AuthContext } from "../../config/contexts/AuthProvider";
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
+  const { user } = useContext(AuthContext);
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
