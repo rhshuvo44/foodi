@@ -201,11 +201,11 @@ const Navbar = () => {
           <button
             to="contact"
             className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
-            onClick={() => document.getElementById("my_modal_5").showModal()}
+            onClick={() => document.getElementById("login").showModal()}
           >
             <FaRegUser className="w-4 h-4" /> Login
           </button>
-          <LoginModal/>
+          <LoginModal />
         </div>
       </nav>
     </header>

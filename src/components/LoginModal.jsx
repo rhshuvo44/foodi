@@ -7,18 +7,14 @@ const LoginModal = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
   return (
-    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+    <dialog id="login" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
         <div className="modal-action flex flex-col justify-center mt-0">
-          {/* <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button> */}
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="card-body"
@@ -72,6 +68,13 @@ const LoginModal = () => {
                 Signup Now
               </Link>
             </p>
+            <button
+              onClick={() => document.getElementById("login").close()}
+              htmlFor="login"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              ✕
+            </button>
           </form>
           {/* social btn  */}
           <div className="text-center space-x-3">
