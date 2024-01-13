@@ -4,6 +4,7 @@ body {
   font-family: "Inter", sans-serif;
   background: linear-gradient(180deg, #fafafa 0%, #fcfcfc 100%);
 }
+
 header {
   z-index: 10001 !important;
 }

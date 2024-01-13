@@ -13,6 +13,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const gooleProvider = new GoogleAuthProvider();
   //  signup function
   const userSignup = (email, password) => {
@@ -45,6 +46,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setLoading(false);
       } else {
         // User is signed out
         // ...
@@ -61,6 +63,7 @@ const AuthProvider = ({ children }) => {
     login,
     logout,
     updateProfile,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

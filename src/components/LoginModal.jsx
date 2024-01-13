@@ -21,6 +21,7 @@ const LoginModal = () => {
         const user = result.user;
         alert("login success");
         navigate(from, { replace: true });
+        document.getElementById("login").close();
       })
       .catch((error) => {
         console.log(error);
@@ -31,6 +32,7 @@ const LoginModal = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         alert("login success");
+        document.getElementById("login").close();
       })
       .catch((error) => {
         console.log(error);

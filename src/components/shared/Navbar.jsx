@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
-import logo from "/logo.png";
-import LoginModal from "../LoginModal";
 import { AuthContext } from "../../config/contexts/AuthProvider";
+import LoginModal from "../LoginModal";
+import logo from "/logo.png";
+import Profile from "../Profile";
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
   const { user } = useContext(AuthContext);
@@ -162,11 +163,7 @@ const Navbar = () => {
             </svg>
           </button>
           <div className="dropdown dropdown-end mr-3 hidden lg:flex">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle"
-            >
+            <div className="btn btn-ghost btn-circle">
               <div className="indicator">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -185,28 +182,21 @@ const Navbar = () => {
                 <span className="badge badge-sm indicator-item">8</span>
               </div>
             </div>
-            <div
-              tabIndex={0}
-              className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
-            >
-              <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
-                </div>
-              </div>
-            </div>
           </div>
-          <button
-            to="contact"
-            className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
-            onClick={() => document.getElementById("login").showModal()}
-          >
-            <FaRegUser className="w-4 h-4" /> Login
-          </button>
+
+          {
+            // login btn
+            user ? (
+              <Profile user={user} />
+            ) : (
+              <button
+                className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
+                onClick={() => document.getElementById("login").showModal()}
+              >
+                <FaRegUser className="w-4 h-4" /> Login
+              </button>
+            )
+          }
           <LoginModal />
         </div>
       </nav>
