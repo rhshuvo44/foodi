@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../config/contexts/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Profile = ({ user }) => {
+  const { logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        alert("Logout successful");
+      })
+      .catch(() => {});
+  };
   return (
     <div>
       <div className="drawer drawer-end z-50">
@@ -22,7 +32,7 @@ const Profile = ({ user }) => {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li>
-              <a>Profile</a>
+              <Link to="update-profile">Profile</Link>
             </li>
             <li>
               <a>Order</a>
@@ -31,7 +41,7 @@ const Profile = ({ user }) => {
               <a>Setting</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a onClick={handleLogout}>Logout</a>
             </li>
           </ul>
         </div>

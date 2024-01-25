@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const gooleProvider = new GoogleAuthProvider();
   //  signup function
   const userSignup = (email, password) => {
@@ -24,7 +24,6 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, gooleProvider);
   };
   // login with email & password
-
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -32,7 +31,6 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     return signOut(auth);
   };
-
   // update profile
   const updateProfile = (name, photoURL) => {
     updateProfile(auth.currentUser, {
@@ -40,7 +38,6 @@ const AuthProvider = ({ children }) => {
       photoURL: photoURL,
     });
   };
-
   // check user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
