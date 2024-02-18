@@ -1,38 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import LoginModal from "../components/LoginModal";
-import { AuthContext } from "../config/contexts/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const { register, handleSubmit } = useForm();
-  const { loginGmail, userSignup } = useContext(AuthContext);
-  // redirecting to home page
-  const location = useLocation();
-  const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
-  const handleGoogleLogin = () => {
-    loginGmail()
-      .then((result) => {
-        const user = result.user;
-        alert("login success");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const onSubmit = ({ email, password }) => {
-    userSignup(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert("Create success");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
+  const onSubmit = ({ email, password }) => {};
   return (
     <div className="flex max-w-md bg-white shadow w-full mx-auto items-center justify-center mt-20 pb-6">
       <div className="modal-action flex flex-col justify-center mt-0">
@@ -94,10 +68,7 @@ const Signup = () => {
         </form>
         {/* social btn  */}
         <div className="text-center space-x-3">
-          <button
-            className="btn btn-circle hover:bg-accent hover:text-white"
-            onClick={handleGoogleLogin}
-          >
+          <button className="btn btn-circle hover:bg-accent hover:text-white">
             <FaGoogle />
           </button>
           <button className="btn btn-circle hover:bg-accent hover:text-white">

@@ -1,13 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../config/contexts/AuthProvider";
 import LoginModal from "../LoginModal";
 import logo from "/logo.png";
-import Profile from "../Profile";
 const Navbar = () => {
   const [isSticky, setSticky] = useState(false);
-  const { user } = useContext(AuthContext);
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -184,19 +181,13 @@ const Navbar = () => {
             </div>
           </div>
 
-          {
-            // login btn
-            user ? (
-              <Profile user={user} />
-            ) : (
-              <button
-                className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
-                onClick={() => document.getElementById("login").showModal()}
-              >
-                <FaRegUser className="w-4 h-4" /> Login
-              </button>
-            )
-          }
+          <button
+            className="btn bg-accent rounded-full px-6 text-white flex items-center gap-2 hover:bg-black transition-all duration-500"
+            onClick={() => document.getElementById("login").showModal()}
+          >
+            <FaRegUser className="w-4 h-4" /> Login
+          </button>
+
           <LoginModal />
         </div>
       </nav>

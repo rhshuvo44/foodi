@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../config/contexts/AuthProvider";
+import { Link } from "react-router-dom";
 
 const LoginModal = () => {
   const {
@@ -10,34 +9,9 @@ const LoginModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { loginGmail, login } = useContext(AuthContext);
   // redirecting to home page
-  const location = useLocation();
-  const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
-  const handleGoogleLogin = () => {
-    loginGmail()
-      .then((result) => {
-        const user = result.user;
-        alert("login success");
-        navigate(from, { replace: true });
-        document.getElementById("login").close();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const onSubmit = ({ email, password }) => {
-    login(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert("login success");
-        document.getElementById("login").close();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
+  const onSubmit = ({ email, password }) => {};
   return (
     <dialog id="login" className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
@@ -103,10 +77,7 @@ const LoginModal = () => {
           </form>
           {/* social btn  */}
           <div className="text-center space-x-3">
-            <button
-              className="btn btn-circle hover:bg-accent hover:text-white"
-              onClick={handleGoogleLogin}
-            >
+            <button className="btn btn-circle hover:bg-accent hover:text-white">
               <FaGoogle />
             </button>
             <button className="btn btn-circle hover:bg-accent hover:text-white">
